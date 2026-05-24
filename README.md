@@ -2,6 +2,8 @@
 
 Bienvenido a mi repositorio enfocado en OPC UA, automatización industrial moderna y microservicios industriales usando TypeScript, Node.js y Docker.
 
+![OPC Master](docs/img/intro.jpeg)
+
 Este proyecto no es solo teoría, con el pretendo dos objetivos principales:
 
 - Brindar una base solida de microservicios listos para trabajar con OPC, en entornos industriales reales
