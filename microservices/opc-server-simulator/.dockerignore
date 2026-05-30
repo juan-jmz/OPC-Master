@@ -1,0 +1,25 @@
+# Dependencias
+node_modules
+npm-debug.log
+
+# Archivos de desarrollo
+.git
+.gitignore
+.vscode
+.idea
+
+# Archivos compilados locales
+dist
+
+# Archivos de prueba
+*.test.ts
+*.spec.ts
+
+# Documentación
+README.md
+*.md
+
+# Archivos temporales
+*.log
+*.tmp
+.DS_Store

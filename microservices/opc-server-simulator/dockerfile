@@ -1,0 +1,57 @@
+# Etapa de construcción
+FROM node:22-alpine AS builder
+
+# Establecer directorio de trabajo
+WORKDIR /app
+
+# Copiar archivos de dependencias
+COPY package*.json ./
+COPY tsconfig.json ./
+
+# Instalar dependencias
+RUN npm ci
+
+# Copiar código fuente
+COPY src ./src
+
+# Compilar TypeScript
+RUN npm run build
+
+# Etapa de producción
+FROM node:22-alpine
+
+# Instalar dumb-init para manejo correcto de señales
+RUN apk add --no-cache dumb-init
+
+# Crear usuario no-root para seguridad
+RUN addgroup -g 1001 opcuser && \
+    adduser -D -u 1001 -G opcuser opcuser
+
+WORKDIR /app
+
+# Copiar solo dependencias de producción
+COPY package*.json ./
+RUN npm ci --only=production && \
+    npm cache clean --force
+
+# Copiar código compilado desde builder
+COPY --from=builder /app/dist ./dist
+
+# Cambiar ownership de archivos
+RUN chown -R opcuser:opcuser /app
+
+# Cambiar a usuario no-root
+USER opcuser
+
+# Exponer puerto OPC UA
+EXPOSE 4840
+
+# Healthcheck para verificar que el servidor está activo
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD node -e "require('net').connect(4840, 'localhost').on('connect', () => process.exit(0)).on('error', () => process.exit(1))"
+
+# Usar dumb-init para manejo correcto de señales
+ENTRYPOINT ["dumb-init", "--"]
+
+# Comando para iniciar el servidor
+CMD ["node", "dist/server.js"]

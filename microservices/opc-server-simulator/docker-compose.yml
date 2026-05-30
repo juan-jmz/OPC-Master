@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  opc-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: opc-server-simulator
+    
+    # Política de reinicio - siempre activo
+    restart: unless-stopped
+    
+    # Puertos
+    ports:
+      - "4840:4840"
+    
+    # Variables de entorno
+    environment:
+      - NODE_ENV=production
+      - TZ=America/Mexico_City # Ajusta tu zona horaria
+    
+    # Límites de recursos
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+
+# Red personalizada (opcional)
+networks:
+  default:
+    name: opc-network
+    driver: bridge
