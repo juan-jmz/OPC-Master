@@ -163,11 +163,8 @@ class OPCServerSimulator {
       // Incrementar contador
       this.counter++;
       
-      // Cambiar estado cada 10 segundos
-      if (this.counter % 10 === 0) {
-        this.isRunning = !this.isRunning;
-        this.status = this.isRunning ? "RUNNING" : "STOPPED";
-      }
+      // Actualizar texto de estado según IsRunning
+      this.status = this.isRunning ? "RUNNING" : "STOPPED";
 
       // Mostrar valores actuales
       console.log(`Temp: ${this.temperature.toFixed(2)}°C | Presión: ${this.pressure.toFixed(2)} kPa | Counter: ${this.counter} | Running: ${this.isRunning}`);
