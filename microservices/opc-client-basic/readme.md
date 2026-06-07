@@ -1,10 +1,15 @@
-# OPC UA Client con TypeScript
+# Lección 2: OPC UA Client con TypeScript
 
 Ejemplo educativo para crear clientes  OPC UA utilizando TypeScript y Node OPCUA. La idea de este proyecto no es únicamente mostrar código funcionando. El objetivo es entender cómo funciona OPC UA internamente mientras interactuamos con un servidor real.
 
 ![OPC UA Client Basic](../../docs/img/client-basic/opc-client-basic-portada.jpeg)
 
 Todos los ejemplos fueron diseñados para ejecutarse contra el proyecto: **opc-server-simulator**
+
+## Consideraciones
+- **No se incluye dockerfile** porque este proyecto, mas que un microservicio, es un ejemplo ilustrativo para entender los conceptos básicos de OPC UA
+- Para realizar los ejercisios, se requiere ejecutar el **opc-server-simulator**, pued estarse ejecutando desde terminal o desde docker
+
 
 
 ## ¿Qué es OPC UA?
@@ -28,7 +33,7 @@ Por ejemplo, una variable puede contener:
 
 ## Conceptos fundamentales
 
-### NodeId
+### - NodeId
 
 Cada elemento dentro de un servidor OPC UA posee un identificador único llamado NodeId.
 
@@ -53,7 +58,7 @@ ns=1;s=Temperature
 ```
 
 
-### Namespace
+### - Namespace
 
 Los namespaces permiten organizar los nodos dentro de un servidor.
 
@@ -72,7 +77,7 @@ ns=1
 Namespace personalizado de nuestra aplicación.
 
 
-### Namespace 0
+### - Namespace 0
 
 Todos los servidores OPC UA contienen un namespace estándar:
 
@@ -89,9 +94,8 @@ ns=0;i=86    TypesFolder
 ns=0;i=87    ViewsFolder
 ```
 
----
 
-### Identificadores
+### - Identificadores
 
 Un NodeId puede utilizar distintos tipos de identificador.
 
@@ -121,6 +125,7 @@ ns=1;b=...
 
 En aplicaciones industriales normalmente veremos identificadores String o Numéricos.
 
+---
 
 ## ¿Qué es Browse?
 
