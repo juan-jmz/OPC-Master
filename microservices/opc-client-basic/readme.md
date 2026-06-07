@@ -9,8 +9,6 @@ Todos los ejemplos fueron diseñados para ejecutarse contra el proyecto: **opc-s
 
 ## ¿Qué es OPC UA?
 
-![OPC UA Logo](../../docs/img/opc-logo-white.png)
-
 OPC UA (Open Platform Communications Unified Architecture) es un protocolo industrial utilizado para intercambiar información entre dispositivos, PLCs, HMIs, sistemas SCADA, MES, aplicaciones de escritorio, servicios web y plataformas IoT.
 
 A diferencia de protocolos más simples, OPC UA no solamente transmite valores.
