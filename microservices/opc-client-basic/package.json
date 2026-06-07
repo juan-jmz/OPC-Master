@@ -1,0 +1,33 @@
+{
+  "name": "opc-client-basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "browse": "ts-node src/examples/browse.ts",
+    "read": "ts-node src/examples/read.ts",
+    "access": "ts-node src/examples/access-level.ts",
+    "subscribe": "ts-node src/examples/subscribe.ts",
+    "write": "ts-node src/examples/write.ts",
+    "dev:browse": "nodemon --exec ts-node src/examples/browse.ts",
+    "dev:read": "nodemon --exec ts-node src/examples/read.ts",
+    "dev:access": "nodemon --exec ts-node src/examples/access-level.ts",
+    "dev:subscribe": "nodemon --exec ts-node src/examples/subscribe.ts",
+    "dev:write": "nodemon --exec ts-node src/examples/write.ts",
+    "build": "tsc"
+  },
+"keywords": [],
+"author": "",
+"license": "ISC",
+"type": "commonjs",
+"dependencies": {
+  "dotenv": "^17.4.2",
+  "node-opcua": "^2.173.1"
+},
+"devDependencies": {
+  "@types/node": "^25.9.2",
+  "nodemon": "^3.1.14",
+  "ts-node": "^10.9.2",
+  "typescript": "^6.0.3"
+}
+}

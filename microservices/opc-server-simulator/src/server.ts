@@ -47,6 +47,7 @@ class OPCServerSimulator {
     const temperatureNode = namespace.addVariable({
       componentOf: device,
       browseName: "Temperature",
+      nodeId: "s=Temperature",
       dataType: "Double",
       value: {
         get: () => {
@@ -62,6 +63,7 @@ class OPCServerSimulator {
     namespace.addVariable({
       componentOf: device,
       browseName: "Pressure",
+      nodeId: "s=Pressure",
       dataType: "Float",
       value: {
         get: () => {
@@ -77,6 +79,7 @@ class OPCServerSimulator {
     namespace.addVariable({
       componentOf: device,
       browseName: "IsRunning",
+      nodeId: "s=IsRunning",
       dataType: "Boolean",
       value: {
         get: () => {
@@ -97,6 +100,7 @@ class OPCServerSimulator {
     namespace.addVariable({
       componentOf: device,
       browseName: "Counter",
+      nodeId: "s=Counter",
       dataType: "Int32",
       value: {
         get: () => {
@@ -112,6 +116,7 @@ class OPCServerSimulator {
     namespace.addVariable({
       componentOf: device,
       browseName: "Status",
+      nodeId: "s=Status",
       dataType: "String",
       value: {
         get: () => {
@@ -127,6 +132,7 @@ class OPCServerSimulator {
     namespace.addVariable({
       componentOf: device,
       browseName: "LastUpdate",
+      nodeId: "s=LastUpdate",
       dataType: "DateTime",
       value: {
         get: () => {
