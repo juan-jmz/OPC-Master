@@ -9,6 +9,8 @@ Todos los ejemplos fueron diseñados para ejecutarse contra el proyecto: **opc-s
 
 ## ¿Qué es OPC UA?
 
+![OPC Master](../../docs/img/opc-logo-white.png)
+
 OPC UA (Open Platform Communications Unified Architecture) es un protocolo industrial utilizado para intercambiar información entre dispositivos, PLCs, HMIs, sistemas SCADA, MES, aplicaciones de escritorio, servicios web y plataformas IoT.
 
 A diferencia de protocolos más simples, OPC UA no solamente transmite valores.
@@ -25,11 +27,10 @@ Por ejemplo, una variable puede contener:
 * Timestamps
 * Relaciones con otros nodos
 
----
 
-# Conceptos fundamentales
+## Conceptos fundamentales
 
-## NodeId
+### NodeId
 
 Cada elemento dentro de un servidor OPC UA posee un identificador único llamado NodeId.
 
@@ -53,9 +54,8 @@ ns=1;s=Temperature
 └────── Namespace
 ```
 
----
 
-## Namespace
+### Namespace
 
 Los namespaces permiten organizar los nodos dentro de un servidor.
 
@@ -73,7 +73,6 @@ ns=1
 
 Namespace personalizado de nuestra aplicación.
 
----
 
 ### Namespace 0
 
@@ -94,29 +93,29 @@ ns=0;i=87    ViewsFolder
 
 ---
 
-## Identificadores
+### Identificadores
 
 Un NodeId puede utilizar distintos tipos de identificador.
 
-### String
+#### String
 
 ```text
 ns=1;s=Temperature
 ```
 
-### Numérico
+#### Numérico
 
 ```text
 ns=0;i=85
 ```
 
-### GUID
+#### GUID
 
 ```text
 ns=1;g=550e8400-e29b-41d4-a716-446655440000
 ```
 
-### ByteString
+#### ByteString
 
 ```text
 ns=1;b=...
@@ -124,9 +123,8 @@ ns=1;b=...
 
 En aplicaciones industriales normalmente veremos identificadores String o Numéricos.
 
----
 
-# ¿Qué es Browse?
+## ¿Qué es Browse?
 
 Browse es el proceso de explorar la estructura del servidor.
 
@@ -155,13 +153,19 @@ Browse permite descubrir:
 * Tipos de dato
 * Estructura del servidor
 
-Para ejecutar el ejemplo "browse.ts, simplemente realizamos
+Para ejecutar el ejemplo **browse**, simplemente realizamos
 
 ```cmd
 npm run browse
 ```
 
-# ¿Qué es un NodeClass?
+Y obtendremos un resultado como:
+
+![Browse](../../docs/img/client-basic/browse.PNG)
+
+Donde podemos apreciar las variables accesibles en el servidor OPC.
+
+## ¿Qué es un NodeClass?
 
 Cada nodo pertenece a una categoría.
 
@@ -187,9 +191,8 @@ Temperature -> Variable
 ResetMachine -> Method
 ```
 
----
 
-# ¿Qué es un Attribute?
+## ¿Qué es un Attribute?
 
 En OPC UA prácticamente toda la información se obtiene leyendo atributos.
 
@@ -214,9 +217,8 @@ estamos leyendo únicamente el atributo Value.
 
 El valor es sólo un atributo más del nodo.
 
----
 
-# ¿Qué es un DataType?
+## ¿Qué es un DataType?
 
 Cada variable tiene asociado un tipo de dato.
 
@@ -255,9 +257,8 @@ El cliente es quien interpreta que:
 11 = Double
 ```
 
----
 
-# ¿Qué es AccessLevel?
+## ¿Qué es AccessLevel?
 
 AccessLevel define las operaciones permitidas sobre un nodo.
 
@@ -289,9 +290,8 @@ AccessLevel = 3
 Read / Write
 ```
 
----
 
-# AccessLevel vs UserAccessLevel
+## AccessLevel vs UserAccessLevel
 
 No siempre son iguales.
 
@@ -323,7 +323,7 @@ UserAccessLevel = 1
 
 ---
 
-# ¿Qué es una Subscription?
+## ¿Qué es una Subscription?
 
 Las subscriptions permiten recibir cambios automáticamente.
 
@@ -345,7 +345,7 @@ Servidor
 
 ---
 
-# ¿Qué es un MonitoredItem?
+## ¿Qué es un MonitoredItem?
 
 Un MonitoredItem representa un atributo monitoreado.
 
@@ -373,9 +373,9 @@ Session
 
 ---
 
-# Ejemplos incluidos
+## Ejemplos incluidos
 
-## 1. Browse
+### 1. Browse
 
 ```bash
 npm run browse
@@ -403,7 +403,7 @@ DataType:
 
 ---
 
-## 2. Read
+### 2. Read
 
 ```bash
 npm run read
@@ -423,7 +423,7 @@ IsRunning: true
 
 ---
 
-## 3. Access Levels
+### 3. Access Levels
 
 ```bash
 npm run access
@@ -453,7 +453,7 @@ Read / Write
 
 ---
 
-## 4. Subscribe
+### 4. Subscribe
 
 ```bash
 npm run subscribe
@@ -476,7 +476,7 @@ Temperature:
 
 ---
 
-## 5. Write
+### 5. Write
 
 ```bash
 npm run write
@@ -501,11 +501,11 @@ true
 
 Este ejemplo puede observarse simultáneamente desde UA Expert para visualizar el cambio en tiempo real.
 
----
 
-# Herramientas recomendadas
 
-## UA Expert
+## Herramientas recomendadas
+
+### UA Expert
 
 Cliente OPC UA gratuito ampliamente utilizado para pruebas y diagnóstico. Para descargarlo simplemente hay que crear un usuario y descargarlo desde: [link](https://www.unified-automation.com/products/development-tools/uaexpert.html)
 
@@ -522,6 +522,6 @@ Permite:
 
 ---
 
-# Licencia
+## Licencia
 
 MIT
